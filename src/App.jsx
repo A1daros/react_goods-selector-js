@@ -44,16 +44,7 @@ export const App = () => {
               })}
             >
               <td>
-                {good === selectedGood ? (
-                  <button
-                    data-cy="RemoveButton"
-                    type="button"
-                    className="button is-info"
-                    onClick={() => setSelectedGood('')}
-                  >
-                    -
-                  </button>
-                ) : (
+                {selectedGood === '' && (
                   <button
                     data-cy="AddButton"
                     type="button"
@@ -61,6 +52,16 @@ export const App = () => {
                     onClick={() => setSelectedGood(good)}
                   >
                     +
+                  </button>
+                )}
+                {selectedGood !== '' && good === selectedGood && (
+                  <button
+                    data-cy="RemoveButton"
+                    type="button"
+                    className="button is-info"
+                    onClick={() => setSelectedGood('')}
+                  >
+                    -
                   </button>
                 )}
               </td>
